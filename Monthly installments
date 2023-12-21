@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+int main() {
+int Price, DownPayment, Months, PayableAmount;
+double NewAmount, Installment, InterestRate;
+cout << "Enter the Vehicle Price: ";
+cin >> Price;
+cout << "Enter the Down Payment: ";
+cin >> DownPayment;
+cout << "How long do you want to lease the car (in months): ";
+cin >> Months;
+PayableAmount = Price - DownPayment;
+/*
+interest rate in digits =
+interest rate in percentage / 100
+*/
+if (Months <= 12) {
+InterestRate = 0.10;
+NewAmount = PayableAmount + (PayableAmount * InterestRate);
+}
+else if (Months > 12 && Months <= 24) {
+InterestRate = 0.15;
+NewAmount = PayableAmount + (PayableAmount * InterestRate);
+}
+else if (Months > 12 && Months <= 36) {
+InterestRate = 0.20;
+NewAmount = PayableAmount + (PayableAmount * InterestRate);
+}
+else if (Months > 12 && Months <= 48) {
+InterestRate = 0.25;
+NewAmount = PayableAmount + (PayableAmount * InterestRate);
+}
+
+PF Lab Assignment-1 Page number:14
+
+Name: Malik Ali Raza Awan Roll number: 231555 Class: BSCS-1-B
+
+else if (Months > 48 && Months <= 48) {
+InterestRate = 0.30;
+NewAmount = PayableAmount + (PayableAmount * InterestRate);
+}
+else {
+cout << "ERROR! Something went wrong.";
+}
+Installment = NewAmount / Months;
+cout << "Your Monthly Installment is: Rs." << Installment << endl;
+cout << "\n\nProgram END.";
+return 0;
+}
