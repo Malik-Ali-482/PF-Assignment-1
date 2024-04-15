@@ -1,0 +1,30 @@
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int totalSeconds;
+    ifstream inputFile("timeInput.txt");
+    ofstream outputFile("timeOutput.txt");
+
+    if (inputFile.is_open()) {
+        inputFile >> totalSeconds;
+        inputFile.close();
+
+        int hours = totalSeconds / 3600;
+        totalSeconds %= 3600;
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
+
+        cout << "Time taken: " << hours << " hours, " << minutes << " minutes, " << seconds << " seconds." << endl;
+
+        outputFile << "Time taken: " << hours << " hours, " << minutes << " minutes, " << seconds << " seconds." << endl;
+        outputFile.close();
+    } else {
+        cout << "Error: Unable to open input file." << endl;
+    }
+
+    return 0;
+}
